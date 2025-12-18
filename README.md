@@ -1,5 +1,4 @@
 <h1>Python Fundamentals</h1>
-<p>This document explains Python data types, variables, rules, type conversion, operators, and core built-in data structures such as <b>String, List, Tuple, Set, and Dictionary</b>. Each topic is explained in detail with clear examples.</p>
 
 <hr>
 
@@ -243,4 +242,3 @@ print(f"Age: {age}")
 <h2>Conclusion</h2>
 <p>This document covers Python variables, data types, built-in collections, type conversion, and operators with practical examples. These concepts form the foundation for advanced Python programming.</p>
 ```
-
