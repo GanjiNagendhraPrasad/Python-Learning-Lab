@@ -46,9 +46,9 @@ c = 2 + 4j
 
 <pre>
 text = "Hello Python"
-print(text[0])       # H
-print(text[-1])      # n
-print(text[0:5])     # Hello
+print(text[0])
+print(text[-1])
+print(text[0:5])
 </pre>
 
 <h4>Common String Methods</h4>
@@ -239,6 +239,130 @@ print(f"Age: {age}")
 
 <hr>
 
-<h2>Conclusion</h2>
-<p>This document covers Python variables, data types, built-in collections, type conversion, and operators with practical examples. These concepts form the foundation for advanced Python programming.</p>
-```
+<h2>6. Python Control Flow – Loops</h2>
+<p>Loops are used to execute a block of code repeatedly based on a condition or sequence.</p>
+
+<h3>6.1 for Loop</h3>
+<pre>
+for i in range(1, 6):
+    print(i)
+</pre>
+
+<h3>6.2 while Loop</h3>
+<pre>
+i = 1
+while i <= 5:
+    print(i)
+    i += 1
+</pre>
+
+<h3>6.3 Loop Control Statements</h3>
+
+<h4>break</h4>
+<pre>
+for i in range(1, 10):
+    if i == 5:
+        break
+    print(i)
+</pre>
+
+<h4>continue</h4>
+<pre>
+for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)
+</pre>
+
+<h4>pass</h4>
+<pre>
+for i in range(3):
+    pass
+</pre>
+
+<hr>
+
+<h2>7. Python Functions</h2>
+<p>A function is a reusable block of code that performs a specific task.</p>
+
+<h3>7.1 Defining a Function</h3>
+<pre>
+def greet():
+    print("Hello, Python")
+
+greet()
+</pre>
+
+<h3>7.2 Function with Parameters</h3>
+<pre>
+def add(a, b):
+    return a + b
+
+print(add(10, 20))
+</pre>
+
+<h3>7.3 Default Parameters</h3>
+<pre>
+def welcome(name="User"):
+    print("Welcome", name)
+</pre>
+
+<hr>
+
+<h2>8. Notebook Files Overview</h2>
+
+<h3>1️⃣ Control_flow_stmts_.ipynb</h3>
+<p><b>Description:</b> Explains Python control flow statements used to execute code based on conditions.</p>
+<ul>
+  <li>if, elif, else statements</li>
+  <li>Nested conditions</li>
+  <li>Logical and comparison operators</li>
+</ul>
+
+<pre>
+if age >= 18:
+    print("Eligible to vote")
+else:
+    print("Not eligible")
+</pre>
+
+<h3>2️⃣ Control-Stmts-Practice_.ipynb</h3>
+<p><b>Description:</b> Practice problems based on conditional logic.</p>
+
+<pre>
+marks = 75
+if marks >= 90:
+    print("Grade A")
+elif marks >= 60:
+    print("Grade B")
+else:
+    print("Grade C")
+</pre>
+
+<h3>3️⃣ Functions-Practice_.ipynb</h3>
+<p><b>Description:</b> Practice problems for functions and reusable code.</p>
+
+<h3>4️⃣ Lambda-Fun-class_.ipynb</h3>
+<p><b>Description:</b> Covers lambda (anonymous) functions.</p>
+
+<pre>
+square = lambda x: x * x
+print(square(5))
+</pre>
+
+<h3>5️⃣ File-Handling_.ipynb</h3>
+<p><b>Description:</b> Explains file handling operations.</p>
+
+<pre>
+file = open("data.txt", "w")
+file.write("Hello Python")
+file.close()
+</pre>
+
+<hr>
+
+<h2>Final Conclusion</h2>
+<p>
+This repository provides a complete learning path of Python fundamentals including variables, data types, operators, control flow statements, functions, lambda expressions, and file handling. 
+The included practice notebooks strengthen logical thinking and prepare learners for advanced Python and real-world programming.
+</p>
