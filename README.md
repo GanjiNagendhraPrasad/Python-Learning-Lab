@@ -219,10 +219,6 @@ Explicit conversion is done manually using functions like int(), float(), str().
 <h2>Python Operators</h2>
 
 <h3>Arithmetic Operators</h3>
-<p>
-Used to perform mathematical operations.
-</p>
-
 <pre>
 a = 10
 b = 3
@@ -234,10 +230,6 @@ print(a % b)
 </pre>
 
 <h3>Comparison Operators</h3>
-<p>
-Used to compare values and return True or False.
-</p>
-
 <pre>
 print(10 > 5)
 print(10 == 5)
@@ -245,10 +237,6 @@ print(10 != 5)
 </pre>
 
 <h3>Logical Operators</h3>
-<p>
-Used to combine conditions.
-</p>
-
 <pre>
 x = True
 y = False
@@ -275,25 +263,14 @@ print(a is not b)
 <hr>
 
 <h2>Loops</h2>
-<p>
-Loops are used to execute a block of code repeatedly.
-</p>
 
 <h3>for Loop</h3>
-<p>
-Used to iterate over sequences like lists, strings, and ranges.
-</p>
-
 <pre>
 for i in range(1, 6):
     print(i)
 </pre>
 
 <h3>while Loop</h3>
-<p>
-Executes as long as the condition is true.
-</p>
-
 <pre>
 i = 1
 while i <= 5:
@@ -314,10 +291,6 @@ for i in range(1, 6):
 <hr>
 
 <h2>Functions</h2>
-<p>
-A function is a reusable block of code that performs a specific task.
-Functions improve code readability and reduce repetition.
-</p>
 
 <h3>Function Definition</h3>
 <pre>
@@ -347,11 +320,6 @@ welcome("Python")
 <hr>
 
 <h2>Lambda Functions</h2>
-<p>
-Lambda functions are anonymous functions written in a single line.
-They are mainly used for short operations.
-</p>
-
 <pre>
 square = lambda x: x * x
 print(square(5))
@@ -360,10 +328,6 @@ print(square(5))
 <hr>
 
 <h2>File Handling</h2>
-<p>
-File handling allows programs to read data from files and write data into files.
-</p>
-
 <pre>
 file = open("data.txt", "w")
 file.write("Hello Python")
@@ -376,10 +340,81 @@ file.close()
 
 <hr>
 
+<h2>Exception Handling in Python</h2>
+<p>
+Exception handling is used to handle runtime errors so that the normal
+flow of the program is not interrupted.
+</p>
+
+<h3>try and except</h3>
+<pre>
+try:
+    a = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+</pre>
+
+<h3>Exception Keyword</h3>
+<pre>
+try:
+    x = int("abc")
+except Exception as e:
+    print("Error:", e)
+</pre>
+
+<h3>finally Block</h3>
+<pre>
+try:
+    print(10 / 2)
+except:
+    print("Error occurred")
+finally:
+    print("This block always executes")
+</pre>
+
+<hr>
+
+<h2>Common Errors in Python</h2>
+
+<h3>NameError</h3>
+<pre>
+print(x)
+</pre>
+
+<h3>ValueError</h3>
+<pre>
+int("abc")
+</pre>
+
+<h3>IndentationError</h3>
+<pre>
+if True:
+print("Hello")
+</pre>
+
+<h3>ZeroDivisionError</h3>
+<pre>
+print(10 / 0)
+</pre>
+
+<h3>SyntaxError</h3>
+<pre>
+if True
+    print("Hi")
+</pre>
+
+<h3>FileNotFoundError</h3>
+<pre>
+open("sample.txt")
+</pre>
+
+<hr>
+
 <h2>Final Conclusion</h2>
 <p>
-This document explains Python fundamentals in detail, covering variables,
-data types, operators, loops, functions, lambda expressions, and file handling
-with clear examples. These concepts are essential for examinations,
-real-world programming, and advanced Python learning.
+This document provides a complete and detailed explanation of Python fundamentals,
+including variables, data types, operators, loops, functions, lambda expressions,
+file handling, and exception handling with clear examples. These concepts form
+a strong foundation for exams, interviews, and real-world Python programming,
+and are essential for advancing to higher-level Python topics.
 </p>
