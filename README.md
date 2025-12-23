@@ -1,195 +1,420 @@
+<h1>Python Fundamentals – Detailed Explanation</h1>
 <hr>
 
-<h2>Object-Oriented Programming (OOP) in Python</h2>
+<h2>Python Variables</h2>
 <p>
-Object-Oriented Programming (OOP) is a programming paradigm that organizes
-code using <b>classes</b> and <b>objects</b>. It helps in writing reusable,
-maintainable, and structured programs by modeling real-world entities.
+A variable in Python is a named location in memory that stores data.
+When we assign a value to a variable, Python automatically decides the
+type of data stored. This is called <b>dynamic typing</b>.
 </p>
 
-<hr>
-
-<h3>Class</h3>
 <p>
-A <b>class</b> is a blueprint or template used to create objects.
-It defines variables (data) and methods (functions) that an object will have.
+Variables make programs flexible and reusable. Instead of using fixed
+values repeatedly, we store values in variables and use them whenever required.
 </p>
 
-<pre>
-class Student:
-    name = "Ravi"
-    age = 21
-</pre>
-
-<p>
-Here, <code>Student</code> is a class that contains variables <code>name</code>
-and <code>age</code>.
-</p>
-
-<hr>
-
-<h3>Object</h3>
-<p>
-An <b>object</b> is an instance of a class. It represents a real-world entity
-created using the class blueprint.
-</p>
-
-<pre>
-s1 = Student()
-print(s1.name)
-print(s1.age)
-</pre>
-
-<p>
-Here, <code>s1</code> is an object of the <code>Student</code> class.
-</p>
-
-<hr>
-
-<h3>The self Keyword</h3>
-<p>
-The <b>self</b> keyword represents the current object. It is used to access
-instance variables and methods inside a class.
-</p>
-
-<pre>
-class Demo:
-    def show(self):
-        print("This is self example")
-
-obj = Demo()
-obj.show()
-</pre>
-
-<p>
-Without <code>self</code>, Python cannot identify which object's data is being accessed.
-</p>
-
-<hr>
-
-<h3>Instance Variables</h3>
-<p>
-Instance variables are variables that belong to a specific object.
-They are defined using <code>self</code>.
-</p>
-
-<pre>
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-p1 = Person("Ram", 22)
-p2 = Person("Shyam", 25)
-</pre>
-
-<p>
-Each object has its own copy of instance variables.
-</p>
-
-<hr>
-
-<h3>Class Variables</h3>
-<p>
-Class variables are shared among all objects of a class.
-</p>
-
-<pre>
-class Company:
-    company_name = "ABC Pvt Ltd"
-
-    def show(self):
-        print(self.company_name)
-
-c1 = Company()
-c2 = Company()
-</pre>
-
-<hr>
-
-<h3>Constructor (__init__ Method)</h3>
-<p>
-A constructor is a special method that is automatically called
-when an object is created. It is used to initialize data.
-</p>
-
-<pre>
-class Employee:
-    def __init__(self, id, salary):
-        self.id = id
-        self.salary = salary
-
-e1 = Employee(101, 25000)
-</pre>
-
-<hr>
-
-<h3>Methods in a Class</h3>
-<p>
-A method is a function defined inside a class. It performs operations
-using object data.
-</p>
-
-<pre>
-class Calculator:
-    def add(self, a, b):
-        return a + b
-
-    def sub(self, a, b):
-        return a - b
-
-calc = Calculator()
-print(calc.add(10, 5))
-print(calc.sub(10, 5))
-</pre>
-
-<hr>
-
-<h3>Calling One Method Inside Another</h3>
-<p>
-A method can call another method of the same class using <code>self</code>.
-</p>
-
-<pre>
-class Math:
-    def add(self):
-        print(10 + 20)
-
-    def display(self):
-        self.add()
-
-m = Math()
-m.display()
-</pre>
-
-<hr>
-
-<h3>Advantages of OOP</h3>
+<h3>Important Rules for Variables</h3>
 <ul>
-  <li>Code reusability</li>
-  <li>Better organization of code</li>
-  <li>Easy maintenance</li>
-  <li>Real-world problem modeling</li>
-  <li>Improved readability</li>
+  <li>Variable names must start with a letter or underscore (_)</li>
+  <li>They cannot start with a number</li>
+  <li>Only letters, numbers, and underscores are allowed</li>
+  <li>Python is case-sensitive (age and Age are different)</li>
+  <li>Keywords like if, for, while cannot be used as variable names</li>
 </ul>
 
-<hr>
+<h3>Examples</h3>
+<pre>
+x = 10        # integer variable
+name = "Ram" # string variable
+_marks = 90
+</pre>
 
-<h2>Final Summary</h2>
 <p>
-This README covers complete <b>Python Fundamentals</b> including variables,
-data types, operators, loops, functions, file handling, exception handling,
-and <b>Object-Oriented Programming concepts</b> such as class, object, self,
-constructors, variables, and methods.
+In the above example, Python automatically assigns data types to variables
+based on the values stored.
 </p>
 
+<hr>
+
+<h2>Python Data Types</h2>
 <p>
-These concepts form a strong foundation for:
+Data types specify what kind of data a variable can store.
+Python provides built-in data types to handle numbers, text, and collections.
+</p>
+
+<h3>Numeric Data Types</h3>
+<p>
+Numeric data types are used to store numerical values.
 </p>
 
 <ul>
-  <li>Python exams</li>
-  <li>Technical interviews</li>
-  <li>Real-world Python projects</li>
-  <li>Advanced topics like Django, Data Science, and Machine Learning</li>
+  <li><b>int</b> – stores whole numbers (positive or negative)</li>
+  <li><b>float</b> – stores decimal values</li>
+  <li><b>complex</b> – stores real and imaginary values</li>
 </ul>
+
+<pre>
+a = 25
+b = 10.5
+c = 3 + 4j
+
+print(type(a))
+print(type(b))
+print(type(c))
+</pre>
+
+<p>
+Integers are used for counting, floats for precision values, and complex
+numbers mainly in scientific calculations.
+</p>
+
+<hr>
+
+<h3>String Data Type</h3>
+<p>
+A string is a sequence of characters enclosed in single, double,
+or triple quotes. Strings are <b>immutable</b>, meaning once created,
+they cannot be changed.
+</p>
+
+<pre>
+text = "Python Programming"
+print(text[0])      # First character
+print(text[-1])     # Last character
+print(text[0:6])    # Slicing
+</pre>
+
+<h3>Important String Operations</h3>
+<pre>
+s = " python language "
+print(s.upper())
+print(s.lower())
+print(s.strip())
+print(s.replace("python", "java"))
+print(s.split())
+</pre>
+
+<p>
+Strings are widely used for handling user input, messages, and text processing.
+</p>
+
+<hr>
+
+<h3>List Data Type</h3>
+<p>
+A list is an ordered, mutable collection of elements.
+It allows duplicate values and different data types in a single list.
+</p>
+
+<pre>
+data = [10, "Python", 3.5]
+data.append(100)
+data[0] = 50
+print(data)
+</pre>
+
+<p>
+Lists are commonly used when data needs to be modified frequently.
+</p>
+
+<hr>
+
+<h3>Tuple Data Type</h3>
+<p>
+A tuple is similar to a list, but it is immutable.
+Once created, elements cannot be added, removed, or modified.
+</p>
+
+<pre>
+t = (10, 20, 30)
+print(t[1])
+</pre>
+
+<p>
+Tuples are used to protect data from accidental modification.
+</p>
+
+<hr>
+
+<h3>Set Data Type</h3>
+<p>
+A set is an unordered collection of unique elements.
+Duplicate values are automatically removed.
+</p>
+
+<pre>
+s = {1, 2, 3, 3, 4}
+print(s)
+</pre>
+
+<h3>Set Operations</h3>
+<pre>
+a = {1, 2, 3}
+b = {3, 4, 5}
+print(a.union(b))
+print(a.intersection(b))
+</pre>
+
+<p>
+Sets are mainly used for mathematical operations and removing duplicates.
+</p>
+
+<hr>
+
+<h3>Dictionary Data Type</h3>
+<p>
+A dictionary stores data in key-value pairs.
+Keys must be unique and immutable, while values can be any data type.
+</p>
+
+<pre>
+student = {
+  "name": "Ravi",
+  "age": 21,
+  "course": "Python"
+}
+
+print(student["name"])
+print(student.get("age"))
+</pre>
+
+<p>
+Dictionaries are used to represent structured data like records.
+</p>
+
+<hr>
+
+<h2>Type Conversion</h2>
+<p>
+Type conversion is the process of converting one data type into another.
+It can be implicit or explicit.
+</p>
+
+<h3>Implicit Type Conversion</h3>
+<pre>
+x = 10
+y = 5.5
+z = x + y
+print(z)
+print(type(z))
+</pre>
+
+<p>
+Python automatically converts int to float to avoid data loss.
+</p>
+
+<h3>Explicit Type Conversion</h3>
+<pre>
+a = "100"
+b = int(a)
+print(b + 20)
+</pre>
+
+<p>
+Explicit conversion is done manually using functions like int(), float(), str().
+</p>
+
+<hr>
+
+<h2>Python Operators</h2>
+
+<h3>Arithmetic Operators</h3>
+<pre>
+a = 10
+b = 3
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a % b)
+</pre>
+
+<h3>Comparison Operators</h3>
+<pre>
+print(10 > 5)
+print(10 == 5)
+print(10 != 5)
+</pre>
+
+<h3>Logical Operators</h3>
+<pre>
+x = True
+y = False
+print(x and y)
+print(x or y)
+print(not x)
+</pre>
+
+<h3>Membership Operators</h3>
+<pre>
+nums = [1, 2, 3]
+print(2 in nums)
+print(5 not in nums)
+</pre>
+
+<h3>Identity Operators</h3>
+<pre>
+a = 10
+b = 10
+print(a is b)
+print(a is not b)
+</pre>
+
+<hr>
+
+<h2>Loops</h2>
+
+<h3>for Loop</h3>
+<pre>
+for i in range(1, 6):
+    print(i)
+</pre>
+
+<h3>while Loop</h3>
+<pre>
+i = 1
+while i <= 5:
+    print(i)
+    i += 1
+</pre>
+
+<h3>Loop Control Statements</h3>
+<pre>
+for i in range(1, 6):
+    if i == 3:
+        continue
+    if i == 5:
+        break
+    print(i)
+</pre>
+
+<hr>
+
+<h2>Functions</h2>
+
+<h3>Function Definition</h3>
+<pre>
+def greet():
+    print("Hello Python")
+
+greet()
+</pre>
+
+<h3>Function with Parameters and Return</h3>
+<pre>
+def add(a, b):
+    return a + b
+
+print(add(10, 20))
+</pre>
+
+<h3>Default Arguments</h3>
+<pre>
+def welcome(name="User"):
+    print("Welcome", name)
+
+welcome()
+welcome("Python")
+</pre>
+
+<hr>
+
+<h2>Lambda Functions</h2>
+<pre>
+square = lambda x: x * x
+print(square(5))
+</pre>
+
+<hr>
+
+<h2>File Handling</h2>
+<pre>
+file = open("data.txt", "w")
+file.write("Hello Python")
+file.close()
+
+file = open("data.txt", "r")
+print(file.read())
+file.close()
+</pre>
+
+<hr>
+
+<h2>Exception Handling in Python</h2>
+<p>
+Exception handling is used to handle runtime errors so that the normal
+flow of the program is not interrupted.
+</p>
+
+<h3>try and except</h3>
+<pre>
+try:
+    a = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+</pre>
+
+<h3>Exception Keyword</h3>
+<pre>
+try:
+    x = int("abc")
+except Exception as e:
+    print("Error:", e)
+</pre>
+
+<h3>finally Block</h3>
+<pre>
+try:
+    print(10 / 2)
+except:
+    print("Error occurred")
+finally:
+    print("This block always executes")
+</pre>
+
+<hr>
+
+<h2>Common Errors in Python</h2>
+
+<h3>NameError</h3>
+<pre>
+print(x)
+</pre>
+
+<h3>ValueError</h3>
+<pre>
+int("abc")
+</pre>
+
+<h3>IndentationError</h3>
+<pre>
+if True:
+print("Hello")
+</pre>
+
+<h3>ZeroDivisionError</h3>
+<pre>
+print(10 / 0)
+</pre>
+
+<h3>SyntaxError</h3>
+<pre>
+if True
+    print("Hi")
+</pre>
+
+<h3>FileNotFoundError</h3>
+<pre>
+open("sample.txt")
+</pre>
+
+<hr>
+
+<h2>Final Conclusion</h2>
+<p>
+This document provides a complete and detailed explanation of Python fundamentals,
+including variables, data types, operators, loops, functions, lambda expressions,
+file handling, and exception handling with clear examples. These concepts form
+a strong foundation for exams, interviews, and real-world Python programming,
+and are essential for advancing to higher-level Python topics.
+</p>
