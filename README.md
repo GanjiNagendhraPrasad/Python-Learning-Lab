@@ -408,13 +408,392 @@ if True
 open("sample.txt")
 </pre>
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object-Oriented Programming (OOP) in Python – Detailed Explanation</title>
+</head>
+<body>
+
+<h1>Object-Oriented Programming (OOP) in Python – Detailed Explanation</h1>
+
+<p>
+This document explains the <b>concepts used in the given Python file</b> and also provides a
+<b>very detailed explanation of core OOP topics</b> such as
+<b>class, object, self, variables, and methods</b> with clear examples.
+</p>
+
 <hr>
 
-<h2>Final Conclusion</h2>
+<h2>1. What is Object-Oriented Programming (OOP)?</h2>
+
 <p>
-This document provides a complete and detailed explanation of Python fundamentals,
-including variables, data types, operators, loops, functions, lambda expressions,
-file handling, and exception handling with clear examples. These concepts form
-a strong foundation for exams, interviews, and real-world Python programming,
-and are essential for advancing to higher-level Python topics.
+<b>Object-Oriented Programming (OOP)</b> is a programming approach where we organize code using
+<b>classes</b> and <b>objects</b>.
 </p>
+
+<p>Instead of writing only functions, OOP helps us:</p>
+<ul>
+    <li>Group related data and behavior together</li>
+    <li>Make code reusable</li>
+    <li>Make programs easier to understand and maintain</li>
+</ul>
+
+<p>Python supports OOP completely.</p>
+
+<hr>
+
+<h2>2. Class</h2>
+
+<h3>What is a Class?</h3>
+
+<p>
+A <b>class</b> is a <b>blueprint or template</b> for creating objects.
+</p>
+
+<p>
+Think of a class like a <b>design of a house</b>:
+</p>
+
+<ul>
+    <li>The design is the same</li>
+    <li>But many houses (objects) can be built from it</li>
+</ul>
+
+<h3>Syntax of a Class</h3>
+
+<pre>
+class ClassName:
+    variables
+    methods
+</pre>
+
+<h3>Example from the Given File</h3>
+
+<pre>
+class PPP:
+    a = 10
+    b = 20
+</pre>
+
+<p>Here:</p>
+<ul>
+    <li><code>PPP</code> is a <b>class</b></li>
+    <li><code>a</code> and <code>b</code> are <b>class variables</b></li>
+</ul>
+
+<hr>
+
+<h2>3. Object</h2>
+
+<h3>What is an Object?</h3>
+
+<p>
+An <b>object</b> is a <b>real instance</b> of a class.
+</p>
+
+<ul>
+    <li>Class = Blueprint</li>
+    <li>Object = Actual thing created using the blueprint</li>
+</ul>
+
+<h3>Example</h3>
+
+<pre>
+anil = PPP()
+</pre>
+
+<p>Here:</p>
+<ul>
+    <li><code>PPP()</code> creates an object</li>
+    <li><code>anil</code> is an object of class <code>PPP</code></li>
+</ul>
+
+<p>You can create multiple objects:</p>
+
+<pre>
+x = PPP()
+y = PPP()
+</pre>
+
+<p>Each object can access the class data and methods.</p>
+
+<hr>
+
+<h2>4. Variables in OOP</h2>
+
+<h3>Types of Variables in Python Classes</h3>
+
+<h3>1️⃣ Class Variables</h3>
+
+<ul>
+    <li>Defined <b>inside the class</b></li>
+    <li>Shared by <b>all objects</b></li>
+</ul>
+
+<pre>
+class PPP:
+    a = 10
+    b = 20
+</pre>
+
+<p>All objects of <code>PPP</code> share <code>a</code> and <code>b</code>.</p>
+
+<hr>
+
+<h3>2️⃣ Instance Variables</h3>
+
+<ul>
+    <li>Defined using <code>self</code></li>
+    <li>Different for each object</li>
+</ul>
+
+<pre>
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+</pre>
+
+<p>Here:</p>
+<ul>
+    <li><code>name</code> and <code>marks</code> are <b>instance variables</b></li>
+</ul>
+
+<hr>
+
+<h2>5. Functions vs Methods</h2>
+
+<h3>Function</h3>
+
+<p>A <b>function</b> is written outside a class.</p>
+
+<pre>
+def add(a, b):
+    return a + b
+</pre>
+
+<hr>
+
+<h3>Method</h3>
+
+<p>A <b>method</b> is a function written <b>inside a class</b>.</p>
+
+<pre>
+class Demo:
+    def show(self):
+        print("Hello")
+</pre>
+
+<hr>
+
+<h2>6. self Keyword (Very Important)</h2>
+
+<h3>What is <code>self</code>?</h3>
+
+<p>
+<code>self</code> refers to the <b>current object</b>.
+</p>
+
+<p>It is used to:</p>
+<ul>
+    <li>Access variables of the current object</li>
+    <li>Call other methods of the same class</li>
+</ul>
+
+<h3>Why <code>self</code> is Required?</h3>
+
+<p>
+Without <code>self</code>, Python does not know <b>which object</b> is using the method.
+</p>
+
+<h3>Example from the Given File</h3>
+
+<pre>
+def add(self):
+    print(self.a + self.b)
+</pre>
+
+<p>Here:</p>
+<ul>
+    <li><code>self.a</code> refers to variable <code>a</code> of the object</li>
+    <li><code>self.b</code> refers to variable <code>b</code> of the object</li>
+</ul>
+
+<hr>
+
+<h2>7. Methods in the Given File</h2>
+
+<h3>add() Method</h3>
+
+<pre>
+def add(self):
+    print(self.a + self.b)
+</pre>
+
+<ul>
+    <li>Adds <code>a</code> and <code>b</code></li>
+    <li>Uses object variables</li>
+</ul>
+
+<h3>sub() Method</h3>
+
+<pre>
+def sub(self):
+    print(self.a - self.b)
+</pre>
+
+<ul>
+    <li>Subtracts <code>b</code> from <code>a</code></li>
+</ul>
+
+<h3>mult() Method</h3>
+
+<pre>
+def mult(self):
+    print(self.a * self.b)
+</pre>
+
+<ul>
+    <li>Multiplies <code>a</code> and <code>b</code></li>
+</ul>
+
+<h3>div() Method</h3>
+
+<pre>
+def div(self):
+    print(self.a / self.b)
+</pre>
+
+<ul>
+    <li>Divides <code>a</code> by <code>b</code></li>
+</ul>
+
+<hr>
+
+<h2>8. Calling One Method Inside Another Method</h2>
+
+<h3>common() Method</h3>
+
+<pre>
+def common(self):
+    self.add()
+    self.sub()
+    self.mult()
+    self.div()
+</pre>
+
+<h3>Explanation</h3>
+
+<ul>
+    <li>One method is calling other methods</li>
+    <li><code>self.method_name()</code> is used</li>
+    <li>Helps reduce repeated code</li>
+</ul>
+
+<hr>
+
+<h2>9. Object Calling a Method</h2>
+
+<pre>
+anil = PPP()
+anil.common()
+</pre>
+
+<h3>Execution Flow</h3>
+
+<ol>
+    <li>Object <code>anil</code> is created</li>
+    <li><code>common()</code> method is called</li>
+    <li>Inside <code>common()</code>:
+        <ul>
+            <li><code>add()</code> runs</li>
+            <li><code>sub()</code> runs</li>
+            <li><code>mult()</code> runs</li>
+            <li><code>div()</code> runs</li>
+        </ul>
+    </li>
+</ol>
+
+<hr>
+
+<h2>10. Another Class Example (Simple)</h2>
+
+<pre>
+class Calculator:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def add(self):
+        return self.x + self.y
+
+c = Calculator(5, 3)
+print(c.add())
+</pre>
+
+<h3>Explanation</h3>
+
+<ul>
+    <li><code>__init__</code> initializes values</li>
+    <li><code>self.x</code> and <code>self.y</code> are instance variables</li>
+    <li>Object <code>c</code> accesses methods</li>
+</ul>
+
+<hr>
+
+<h2>11. Summary of Concepts Used</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Concept</th>
+        <th>Explanation</th>
+    </tr>
+    <tr>
+        <td>Class</td>
+        <td>Blueprint of objects</td>
+    </tr>
+    <tr>
+        <td>Object</td>
+        <td>Instance of class</td>
+    </tr>
+    <tr>
+        <td>self</td>
+        <td>Refers to current object</td>
+    </tr>
+    <tr>
+        <td>Variables</td>
+        <td>Store data</td>
+    </tr>
+    <tr>
+        <td>Methods</td>
+        <td>Functions inside class</td>
+    </tr>
+    <tr>
+        <td>Method Calling</td>
+        <td>One method calls another</td>
+    </tr>
+    <tr>
+        <td>OOP</td>
+        <td>Organizing code using classes</td>
+    </tr>
+</table>
+
+<hr>
+
+<h2>12. Why OOP is Important?</h2>
+
+<ul>
+    <li>Code reusability</li>
+    <li>Easy maintenance</li>
+    <li>Real-world modeling</li>
+    <li>Better structure for large programs</li>
+</ul>
+
+</body>
+</html>
+
+
