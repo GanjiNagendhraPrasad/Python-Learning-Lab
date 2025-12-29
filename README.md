@@ -797,3 +797,332 @@ print(c.add())
 </html>
 
 
+<h1>Python OOP – Constructors Explained with Examples</h1>
+<hr>
+
+<h2>Introduction</h2>
+<p>
+This document explains <b>Object-Oriented Programming (OOP)</b> concepts in Python,
+with special focus on <b>constructors</b>. All examples are taken from the given file
+and explained in a beginner-friendly but detailed manner.
+</p>
+
+<hr>
+
+<h2>What is a Class?</h2>
+<p>
+A <b>class</b> is a blueprint or template used to create objects.
+It contains:
+</p>
+<ul>
+  <li>Variables (data)</li>
+  <li>Methods (functions)</li>
+</ul>
+
+<pre>
+class CSE:
+    pass
+</pre>
+
+<p>
+The above class does nothing, but it shows how a class is defined.
+</p>
+
+<hr>
+
+<h2>What is an Object?</h2>
+<p>
+An <b>object</b> is an instance of a class. It represents a real-world entity.
+</p>
+
+<pre>
+obj = CSE()
+</pre>
+
+<p>
+Here, <code>obj</code> is an object of the <code>CSE</code> class.
+</p>
+
+<hr>
+
+<h2>What is a Constructor?</h2>
+<p>
+A <b>constructor</b> is a special method in Python that is executed
+<b>automatically</b> when an object is created.
+</p>
+
+<p>
+In Python, the constructor is named <code>__init__()</code>.
+</p>
+
+<ul>
+  <li>Used to initialize data</li>
+  <li>Called automatically</li>
+  <li>Improves reusability</li>
+</ul>
+
+<hr>
+
+<h2>Types of Constructors</h2>
+<ul>
+  <li>Non-Parameterized Constructor</li>
+  <li>Parameterized Constructor</li>
+</ul>
+
+<hr>
+
+<h2>1. Non-Parameterized Constructor</h2>
+<p>
+A <b>non-parameterized constructor</b> does not accept any arguments
+(other than <code>self</code>).
+</p>
+
+<h3>Example</h3>
+<pre>
+class CSE:
+    f = 20
+
+    def __init__(self):
+        print("Good Morning")
+
+anil = CSE()
+</pre>
+
+<h3>Explanation</h3>
+<ul>
+  <li><code>__init__()</code> runs automatically</li>
+  <li>No values are passed during object creation</li>
+  <li>Message is printed as soon as object is created</li>
+</ul>
+
+<hr>
+
+<h2>2. Parameterized Constructor</h2>
+<p>
+A <b>parameterized constructor</b> accepts arguments and initializes
+instance variables.
+</p>
+
+<h3>Example</h3>
+<pre>
+class CSE:
+    f = 10
+
+    def __init__(self, a):
+        print("Good Morning", a)
+
+anil = CSE(10)
+</pre>
+
+<h3>Explanation</h3>
+<ul>
+  <li>Value <code>10</code> is passed to constructor</li>
+  <li><code>a</code> receives the value</li>
+  <li>Used to pass dynamic data</li>
+</ul>
+
+<hr>
+
+<h2>Constructor for High-Level Reusability</h2>
+<p>
+Constructors help in reducing code repetition and improve reusability.
+</p>
+
+<h3>Example</h3>
+<pre>
+class CSE:
+
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def add(self):
+        print(self.a + self.b)
+
+    def sub(self):
+        print(self.a - self.b)
+
+anil = CSE(10, 20)
+anil.add()
+anil.sub()
+</pre>
+
+<h3>Explanation</h3>
+<ul>
+  <li>Values are assigned once in constructor</li>
+  <li>Used by multiple methods</li>
+  <li>Improves maintainability</li>
+</ul>
+
+<hr>
+
+<h2>Class Without Constructor</h2>
+<p>
+If no constructor is defined, Python provides a default constructor.
+</p>
+
+<h3>Example</h3>
+<pre>
+class PPP:
+    a = 10
+    b = 20
+
+    def add(self):
+        print(self.a + self.b)
+
+    def sub(self):
+        print(self.a - self.b)
+
+anil = PPP()
+anil.add()
+anil.sub()
+</pre>
+
+<h3>Limitation</h3>
+<ul>
+  <li>Values are fixed</li>
+  <li>Less flexible</li>
+</ul>
+
+<hr>
+
+<h2>Class With Constructor</h2>
+<p>
+Using constructor makes the class dynamic and reusable.
+</p>
+
+<h3>Example</h3>
+<pre>
+class LLL:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def add(self):
+        print(self.a + self.b)
+
+    def sub(self):
+        print(self.a - self.b)
+
+anil = LLL(10, 20)
+anil.add()
+anil.sub()
+</pre>
+
+<hr>
+
+<h2>Prime Numbers Without Constructor</h2>
+<pre>
+class PPP:
+    def fun(self, start, end):
+        for i in range(start, end):
+            if i > 1:
+                for j in range(2, i):
+                    if i % j == 0:
+                        print("not prime", i)
+                        break
+                else:
+                    print("prime", i)
+
+anil = PPP()
+anil.fun(1, 101)
+</pre>
+
+<h3>Issue</h3>
+<ul>
+  <li>Values passed repeatedly</li>
+</ul>
+
+<hr>
+
+<h2>Prime Numbers With Constructor</h2>
+<pre>
+class PPP:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+    def fun(self):
+        for i in range(self.start, self.end):
+            if i > 1:
+                for j in range(2, i):
+                    if i % j == 0:
+                        print("not prime", i)
+                        break
+                else:
+                    print("prime", i)
+
+anil = PPP(1, 101)
+anil.fun()
+</pre>
+
+<h3>Advantage</h3>
+<ul>
+  <li>Cleaner code</li>
+  <li>Better structure</li>
+</ul>
+
+<hr>
+
+<h2>Constructor with Exception Handling</h2>
+<p>
+Constructors can also be used with <b>try-except</b> blocks for error handling.
+</p>
+
+<pre>
+import sys
+
+class OOO:
+    def __init__(self, a):
+        self.a = a
+
+    def fun(self):
+        try:
+            print(10 / self.a)
+        except Exception as e:
+            msg = e
+            line = sys.exc_info()[2]
+            print(f'error is {msg} line no is {line.tb_lineno}')
+
+anil = OOO(7)
+anil.fun()
+</pre>
+
+<hr>
+
+<h2>Even Numbers Using Constructor</h2>
+<pre>
+class PPP:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+    def fun(self):
+        for i in range(self.start, self.end):
+            if i % 2 == 0:
+                print("even", i)
+
+anil = PPP(1, 11)
+anil.fun()
+</pre>
+
+<hr>
+
+<h2>Conclusion</h2>
+<p>
+Constructors are one of the most important concepts in Python OOP.
+They make programs:
+</p>
+<ul>
+  <li>Dynamic</li>
+  <li>Reusable</li>
+  <li>Readable</li>
+  <li>Maintainable</li>
+</ul>
+
+<p>
+Understanding constructors is essential for mastering Python classes and
+object-oriented programming.
+</p>
+
+
