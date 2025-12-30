@@ -1126,3 +1126,256 @@ object-oriented programming.
 </p>
 
 
+
+
+
+<hr>
+
+<h2>Inheritance in Python</h2>
+<p>
+Inheritance is a mechanism in which one class acquires the properties and behaviors
+(methods) of another class.
+</p>
+
+<p>
+The class which provides the properties is called the <b>Parent / Base class</b>, and
+the class which inherits the properties is called the <b>Child / Derived class</b>.
+</p>
+
+<p>
+Inheritance supports <b>code reusability</b> and represents an <b>IS-A relationship</b>.
+</p>
+
+<hr>
+
+<h3>Single Inheritance</h3>
+<p>
+Single inheritance means one child class inherits from one parent class.
+</p>
+
+<pre>
+class PARENT:
+  def shop(self):
+    print('i have shop')
+
+class SON(PARENT):
+  def job(self):
+    print('i have job')
+
+anil = SON()
+anil.job()
+anil.shop()
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+  <li><code>PARENT</code> is the parent class.</li>
+  <li><code>SON</code> is the child class inheriting from <code>PARENT</code>.</li>
+  <li>The object of <code>SON</code> can access both its own method and parent class method.</li>
+</ul>
+
+<p><b>Output:</b></p>
+<pre>
+i have job
+i have shop
+</pre>
+
+<hr>
+
+<h3>Multilevel Inheritance</h3>
+<p>
+In multilevel inheritance, a class inherits from a class which is already a derived class.
+</p>
+
+<pre>
+class A:
+  def showA(self):
+    print("class A")
+
+class B(A):
+  def showB(self):
+    print("class B")
+
+class C(B):
+  def showC(self):
+    print("class C")
+
+obj = C()
+obj.showA()
+obj.showB()
+obj.showC()
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+  <li>Class <code>B</code> inherits from <code>A</code>.</li>
+  <li>Class <code>C</code> inherits from <code>B</code>.</li>
+  <li>Class <code>C</code> can access methods of both <code>A</code> and <code>B</code>.</li>
+</ul>
+
+<p><b>Output:</b></p>
+<pre>
+class A
+class B
+class C
+</pre>
+
+<hr>
+
+<h3>Hierarchical Inheritance</h3>
+<p>
+Hierarchical inheritance means multiple child classes inherit from the same parent class.
+</p>
+
+<pre>
+class PARENT:
+  def home(self):
+    print("parent home")
+
+class CHILD1(PARENT):
+  pass
+
+class CHILD2(PARENT):
+  pass
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+  <li>One parent class and multiple child classes.</li>
+  <li>Both child classes can access the parent class method.</li>
+</ul>
+
+<hr>
+
+<h2>Polymorphism</h2>
+<p>
+Polymorphism means <b>many forms</b>.
+It allows the same method name to have different implementations.
+</p>
+
+<hr>
+
+<h3>Method Overriding (Runtime Polymorphism)</h3>
+<p>
+Method overriding occurs when a child class provides its own implementation
+of a method that already exists in the parent class.
+</p>
+
+<pre>
+class PARENT:
+  def marry(self):
+    print("parent choice")
+
+class SON(PARENT):
+  def marry(self):
+    print("son choice")
+
+obj = SON()
+obj.marry()
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+  <li>The child class overrides the parent class method.</li>
+  <li>When the object of child class is created, the child method is executed.</li>
+</ul>
+
+<p><b>Output:</b></p>
+<pre>
+son choice
+</pre>
+
+<hr>
+
+<h3>Polymorphism Using Functions</h3>
+<p>
+Polymorphism can also be achieved using default arguments in functions.
+</p>
+
+<pre>
+def add(a, b, c=0):
+  return a + b + c
+
+print(add(2, 3))
+print(add(2, 3, 4))
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+  <li>The same function name behaves differently based on arguments.</li>
+  <li>Default arguments allow flexible function usage.</li>
+</ul>
+
+<hr>
+
+<h2>Abstraction</h2>
+<p>
+Abstraction is the process of hiding implementation details and showing
+only essential features to the user.
+</p>
+
+<p>
+In Python, abstraction is implemented using:
+</p>
+<ul>
+  <li><code>abc</code> module</li>
+  <li><code>ABC</code> class</li>
+  <li><code>@abstractmethod</code> decorator</li>
+</ul>
+
+<hr>
+
+<h3>Abstract Class</h3>
+<pre>
+from abc import ABC, abstractmethod
+
+class VEHICLE(ABC):
+
+  @abstractmethod
+  def start(self):
+    pass
+
+  @abstractmethod
+  def stop(self):
+    pass
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+  <li><code>VEHICLE</code> is an abstract class.</li>
+  <li>Abstract methods do not have implementation.</li>
+  <li>Object creation of abstract class is not allowed.</li>
+</ul>
+
+<hr>
+
+<h3>Concrete Class Implementing Abstract Methods</h3>
+<pre>
+class BIKE(VEHICLE):
+
+  def start(self):
+    print('bike started')
+
+  def stop(self):
+    print('bike stopped')
+
+obj = BIKE()
+obj.start()
+obj.stop()
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+  <li>The child class must implement all abstract methods.</li>
+  <li>After implementation, object creation is possible.</li>
+</ul>
+
+<p><b>Output:</b></p>
+<pre>
+bike started
+bike stopped
+</pre>
+
+>
+
+
