@@ -1376,6 +1376,242 @@ bike started
 bike stopped
 </pre>
 
->
+
+<h1>Multiprocessing and Multithreading in Python </h1>
+<hr>
+
+<h2>Introduction</h2>
+<p>
+Python provides two powerful ways to achieve concurrent execution:
+<b>Multiprocessing</b> and <b>Multithreading</b>.
+These concepts help improve performance, responsiveness, and resource utilization
+by allowing multiple tasks to run at the same time.
+</p>
+
+<hr>
+
+<h1>PART 1: Multiprocessing – Detailed Explanation</h1>
+
+<h2>Given File: multiprocessing.py</h2>
+
+<h3>Imported Modules</h3>
+<ul>
+  <li><b>multiprocessing</b> – Used to create multiple processes</li>
+  <li><b>time</b> – Used for delays and execution time calculation</li>
+  <li><b>os</b> – Used to get process ID using <code>os.getpid()</code></li>
+</ul>
+
+<h3>Start Time</h3>
+<p>
+The variable <code>st</code> stores the start time of the program.  
+It is later used to calculate the total execution time.
+</p>
+
+<h3>Worker Function: india()</h3>
+<p>
+This function runs in a separate process.  
+It prints its process ID and prints numbers from 1 to 10 with a delay.
+</p>
+
+<h3>Worker Function: usa()</h3>
+<p>
+This function also runs in a separate process with a different process ID.
+It executes independently from the <code>india()</code> function.
+</p>
+
+<h3>Main Block</h3>
+<p>
+The condition <code>if __name__ == "__main__":</code> is mandatory in multiprocessing.
+It prevents infinite process creation and ensures child processes start correctly,
+especially on Windows.
+</p>
+
+<h3>Creating Processes</h3>
+<p>
+Two processes are created using <code>multiprocessing.Process()</code>.
+Each process has:
+</p>
+<ul>
+  <li>Its own memory space</li>
+  <li>Its own process ID (PID)</li>
+  <li>Independent execution</li>
+</ul>
+
+<h3>Starting Processes</h3>
+<p>
+The <code>start()</code> method:
+</p>
+<ul>
+  <li>Creates a new process</li>
+  <li>Allocates separate memory</li>
+  <li>Allows the OS scheduler to assign CPU cores</li>
+  <li>Executes processes in parallel</li>
+</ul>
+
+<h3>Waiting Using join()</h3>
+<p>
+The <code>join()</code> method blocks the main process until child processes finish.
+Without <code>join()</code>, the main program may exit before child processes complete.
+</p>
+
+<h3>Process Execution Flow</h3>
+<ol>
+  <li>Main process starts</li>
+  <li>Child processes are created</li>
+  <li>Each process gets a unique PID</li>
+  <li>OS scheduler assigns CPU cores</li>
+  <li>Processes run independently in parallel</li>
+</ol>
+
+<hr>
+
+<h1>PART 2: Multithreading – Detailed Explanation</h1>
+
+<h2>Given File: multithreading.py</h2>
+
+<h3>Imported Modules</h3>
+<ul>
+  <li><b>threading</b> – Used to create threads</li>
+  <li><b>multiprocessing</b> – Used to create processes</li>
+  <li><b>time</b> – Used for delays and execution timing</li>
+</ul>
+
+<h3>Thread Functions</h3>
+<p>
+Functions like <code>india()</code>, <code>canada()</code>, <code>usa()</code>,
+and <code>uk()</code> print numbers with a delay.
+They are designed to run inside threads.
+</p>
+
+<h3>Thread Group Function: common()</h3>
+<p>
+Creates two threads:
+</p>
+<ul>
+  <li>Thread 1 executes <code>india()</code></li>
+  <li>Thread 2 executes <code>canada()</code></li>
+</ul>
+<p>
+Threads share the same memory and process.
+</p>
+
+<h3>Thread Group Function: common2()</h3>
+<p>
+Creates two more threads:
+</p>
+<ul>
+  <li>Thread 3 executes <code>usa()</code></li>
+  <li>Thread 4 executes <code>uk()</code></li>
+</ul>
+
+<h3>Processes Containing Threads</h3>
+<p>
+This program uses a hybrid approach:
+</p>
+
+<pre>
+Main Process
+ ├── Process 1
+ │    ├── Thread 1 (india)
+ │    └── Thread 2 (canada)
+ └── Process 2
+      ├── Thread 3 (usa)
+      └── Thread 4 (uk)
+</pre>
+
+<p>
+Each process runs independently, and threads inside each process
+execute concurrently.
+</p>
+
+<h3>Thread Execution Behavior</h3>
+<ul>
+  <li>Threads share memory</li>
+  <li>Threads have separate stacks</li>
+  <li>Execution is controlled by Python's GIL</li>
+  <li>During I/O or sleep, threads release GIL</li>
+</ul>
+
+<hr>
+
+<h1>start() and join() – In Detail</h1>
+
+<h3>start()</h3>
+<ul>
+  <li>Begins execution of a thread or process</li>
+  <li>Allocates system resources</li>
+</ul>
+
+<h3>join()</h3>
+<ul>
+  <li>Waits for thread or process to finish</li>
+  <li>Prevents premature program termination</li>
+</ul>
+
+<hr>
+
+<h1>Multiprocessing vs Multithreading</h1>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>Feature</th>
+    <th>Multiprocessing</th>
+    <th>Multithreading</th>
+  </tr>
+  <tr>
+    <td>Execution</td>
+    <td>True parallel</td>
+    <td>Concurrent</td>
+  </tr>
+  <tr>
+    <td>CPU Usage</td>
+    <td>Multiple cores</td>
+    <td>Single core (GIL)</td>
+  </tr>
+  <tr>
+    <td>Memory</td>
+    <td>Separate</td>
+    <td>Shared</td>
+  </tr>
+  <tr>
+    <td>Speed</td>
+    <td>Best for CPU-bound tasks</td>
+    <td>Best for I/O-bound tasks</td>
+  </tr>
+  <tr>
+    <td>Safety</td>
+    <td>High</td>
+    <td>Lower</td>
+  </tr>
+</table>
+
+<hr>
+
+<h1>When to Use What</h1>
+
+<h3>Use Multiprocessing When:</h3>
+<ul>
+  <li>CPU-intensive tasks</li>
+  <li>Machine learning training</li>
+  <li>Image or video processing</li>
+</ul>
+
+<h3>Use Multithreading When:</h3>
+<ul>
+  <li>I/O-bound operations</li>
+  <li>File handling</li>
+  <li>Web requests and APIs</li>
+</ul>
+
+<hr>
+
+<h1>Final Summary</h1>
+<p>
+Multiprocessing enables true parallel execution using multiple CPU cores
+with separate memory spaces.
+Multithreading allows concurrent execution within the same process using shared memory.
+The combination of both provides powerful and efficient program execution.
+</p>
+
 
 
